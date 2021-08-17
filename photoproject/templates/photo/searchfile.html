@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="renderer" content="webkit">
+        <title>共享图片搜索引擎</title>
+        <link rel="shortcut icon" href="/static/photo/img/elfsack.jpg" type="image/x-icon">
+        <link href="/static/photo/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+                #searchBarWrap{  
+                display: flex; 
+                justify-content: center; 
+                } 
+                #searchBar{ 
+                border: rgb(255, 67, 179)  solid ; 
+                border-width: .2em; 
+                border-radius: .7em 0 0 .7em; 
+                padding: .2em .2em .2em .5em; 
+                width: 1000px; 
+                } 
+                #searchBtn{ 
+                /* border:rgb(255, 67, 179) ; */
+                border-top: 5px rgb(255, 67, 179) solid; 
+                border-left: 4px rgb(255, 67, 179) solid;
+                border-right: 4px rgb(255, 67, 179) solid;
+                border-bottom: 5px rgb(255, 67, 179) solid;
+                /* border-width: 4px;  */
+                border-radius: 0 .7em .7em 0; 
+                background-color: rgb(255, 67, 179); 
+                color:white; 
+                font-weight:bold; 
+                /* padding-bottom: .2em;  */
+                }
+                #titleword{   
+                color:rgb(255, 67, 179); 
+                font-weight:normal; 
+                }
+                #word{   
+                color:rgb(255, 67, 179); 
+                }
+        </style>
+    </head>
+
+    <body>
+        <div style="position:absolute; width:100%; height:100%; background-color: snow; z-index:-1" >
+            <img src="/static/photo/img/elfsackbk.jpg" width="100%"/>
+        </div>
+        <br></br><br></br><br></br><br></br><br></br><br></br>        
+        <h1 style="text-align: center;" id="word">
+            <image controls style="text-align: center;" src="/static/photo/img/zi2.png"></image>        
+        </h1>
+        <br></br>
+        <div id="searchBarWrap">                                                  
+            <form action="/searchfileinfo/" method="POST" enctype="multipart/form-data">
+                <div>
+                    <span style="text-align:center;vertical-align:middle;">
+                        <input id="searchBar" type="text" name="search" placeholder="品牌/波次/日期/品类/用途    搜图引擎" style="width: 700px; text-align: center;">
+                        <input id="searchBtn" type="submit" name="go"  style="width: 85px;" value="搜  索"/>
+                    </span>                                                           
+                </div>                                        
+            </form>
+        </div>
+    </body>
+</html>
