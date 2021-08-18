@@ -38,5 +38,7 @@ urlpatterns = [
     static.serve, {'document_root': settings.MEDIAPPDRT_ROOT }, name='imagespinpaidarentu'),
     url(r'^imageszhutu/(?P<path>.*)$', 
     static.serve, {'document_root': settings.MEDIAZHUTU_ROOT }, name='imageszhutu'),
+    url(r'^imagesother/(?P<path>.*)$', 
+    static.serve, {'document_root': settings.MEDIAOTHER_ROOT }, name='imagesother'),
 ]
 

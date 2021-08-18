@@ -143,6 +143,11 @@ if __name__ == '__main__':
     WMDRGetInfoService = fileInfoGetService(SourceDir = WMDRSourceDir, RedisPoolNum = WMDRRedisPoolNum)
     WMDRGetInfoService.FilesDetails()
 
+    OtherSourceDir = "/mnt/imagesother"  #其他
+    OtherRedisPoolNum = 8
+    OtherGetInfoService = fileInfoGetService(SourceDir = OtherSourceDir, RedisPoolNum = OtherRedisPoolNum)
+    OtherGetInfoService.FilesDetails()
+
     # BoCiRedisPoolNum = 11 
     # keyword = '11108002'
     # typeword = '模特图'

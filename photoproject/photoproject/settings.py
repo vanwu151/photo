@@ -143,6 +143,8 @@ MEDIAPPDRT_URL="/imagespinpaidarentu/"
 MEDIAPPDRT_ROOT="/mnt/imagespinpaidarentu"
 MEDIAZHUTU_URL="/imageszhutu/"
 MEDIAZHUTU_ROOT="/mnt/imageszhutu"
+MEDIAOTHER_ROOT="/mnt/imagesother"
+MEDIAOTHER_URL="/imagesother/"
 # MEDIA_ROOT="\\\\172.18.99.210"   # 不可以访问
 # STATICFILES_DIRS = [
 #     'R:\\',  #实际名，实际系统路径的根目录文件名
