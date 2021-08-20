@@ -148,6 +148,11 @@ if __name__ == '__main__':
     OtherGetInfoService = fileInfoGetService(SourceDir = OtherSourceDir, RedisPoolNum = OtherRedisPoolNum)
     OtherGetInfoService.FilesDetails()
 
+    MTYPSourceDir = "/mnt/imageshaibao/原片/2021"  #模特原片
+    MTYPRedisPoolNum = 7
+    MTYPGetInfoService = fileInfoGetService(SourceDir = MTYPSourceDir, RedisPoolNum = MTYPRedisPoolNum)
+    MTYPGetInfoService.FilesDetails()
+
     # BoCiRedisPoolNum = 11 
     # keyword = '11108002'
     # typeword = '模特图'
