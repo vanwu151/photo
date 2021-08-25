@@ -40,5 +40,7 @@ urlpatterns = [
     static.serve, {'document_root': settings.MEDIAZHUTU_ROOT }, name='imageszhutu'),
     url(r'^imagesother/(?P<path>.*)$', 
     static.serve, {'document_root': settings.MEDIAOTHER_ROOT }, name='imagesother'),
+    url(r'^imagesshiti/(?P<path>.*)$', 
+    static.serve, {'document_root': settings.MEDIASHITI_ROOT }, name='imagesshiti'),
 ]
 

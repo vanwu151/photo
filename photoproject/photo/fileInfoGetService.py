@@ -153,6 +153,11 @@ if __name__ == '__main__':
     MTYPGetInfoService = fileInfoGetService(SourceDir = MTYPSourceDir, RedisPoolNum = MTYPRedisPoolNum)
     MTYPGetInfoService.FilesDetails()
 
+    STDSourceDir = "/mnt/imagesshiti/4.实体设计素材"  #实体店图
+    STDRedisPoolNum = 6
+    STDGetInfoService = fileInfoGetService(SourceDir = STDSourceDir, RedisPoolNum = STDRedisPoolNum)
+    STDGetInfoService.FilesDetails()
+
     # BoCiRedisPoolNum = 11 
     # keyword = '11108002'
     # typeword = '模特图'

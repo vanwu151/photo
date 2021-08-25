@@ -235,27 +235,48 @@ def serchfileinfo(request):
             MTYPresaultsData['resaultPD'] = MTYPresaultPD
             MTYPFunctionIndex = MTYPresaultsData['functionIndex']
 
+            #  实体照片
+            STDPoolNum = 6
+            typeword = '实体照片'
+            typewordlikelist = ['实体设计素材','实体']
+            serverRootPath = '/mnt/imagesshiti'
+            PcRootPath = '\\\\172.18.99.210\\品牌部'
+            STDGetInfoService = fs.fileInfoGetService(RedisPoolNum = STDPoolNum, keyword = keyword, typeword = typeword,
+                                                typewordlikelist = typewordlikelist, serverRootPath = serverRootPath, PcRootPath = PcRootPath)
+            STDresaultsData = STDGetInfoService.resaultsfiledata()
+            try:
+                STDresaultPD = len(STDresaultsData['fileurllist'])
+            except:
+                STDresaultPD = 'OK Getch It'
+            STDfileindexlist = STDresaultsData['fileindexlist']
+            STDfileurllist = STDresaultsData['fileurllist']
+            STDtypewordlikeresaultslist = STDresaultsData['typewordlikeresaultslist']                 
+            STDfnlist = STDresaultsData['fnlist']
+            STDfiletypelist = STDresaultsData['filetypelist']
+            STDresaultsData['resaultPD'] = STDresaultPD
+            STDFunctionIndex = STDresaultsData['functionIndex']
+
             # 建立JScript函数索引
-            FunctionIndexSum = HaiBaoFunctionIndex + MJXFunctionIndex + PPDRTFunctionIndex + MTFunctionIndex + PingPuFunctionIndex + BociFunctionIndex + zhutuFunctionIndex + WMDRFunctionIndex + OtherFunctionIndex + MTYPFunctionIndex
+            FunctionIndexSum = HaiBaoFunctionIndex + MJXFunctionIndex + PPDRTFunctionIndex + MTFunctionIndex + PingPuFunctionIndex + BociFunctionIndex + zhutuFunctionIndex + WMDRFunctionIndex + OtherFunctionIndex + MTYPFunctionIndex + STDFunctionIndex
             FunctionIndexSumList = []
             for FunctionIndex in range(1, FunctionIndexSum + 1):
                 FunctionIndexSumList.append(FunctionIndex)
             print('FunctionIndexSumList', len(FunctionIndexSumList))
-            Allfileindexlist = HaiBaofileindexlist + MJXfileindexlist + PPDRTfileindexlist + MTfileindexlist + PingPufileindexlist + Bocifileindexlist + zhutufileindexlist + WMDRfileindexlist + Otherfileindexlist + MTYPfileindexlist
+            Allfileindexlist = HaiBaofileindexlist + MJXfileindexlist + PPDRTfileindexlist + MTfileindexlist + PingPufileindexlist + Bocifileindexlist + zhutufileindexlist + WMDRfileindexlist + Otherfileindexlist + MTYPfileindexlist + STDfileindexlist
             print('Allfileindexlist',len(Allfileindexlist))
-            Allfileurllist = HaiBaofileurllist + MJXfileurllist + PPDRTfileurllist + MTfileurllist + PingPufileurllist + Bocifileurllist + zhutufileurllist +WMDRfileurllist + Otherfileurllist + MTYPfileurllist
+            Allfileurllist = HaiBaofileurllist + MJXfileurllist + PPDRTfileurllist + MTfileurllist + PingPufileurllist + Bocifileurllist + zhutufileurllist +WMDRfileurllist + Otherfileurllist + MTYPfileurllist + STDfileurllist
             print('Allfileurllist',len(Allfileurllist))
-            Alltypewordlikeresaultslist = HaiBaotypewordlikeresaultslist + MJXtypewordlikeresaultslist + PPDRTtypewordlikeresaultslist + MTtypewordlikeresaultslist + PingPutypewordlikeresaultslist + Bocitypewordlikeresaultslist + zhututypewordlikeresaultslist + WMDRtypewordlikeresaultslist + Othertypewordlikeresaultslist + MTYPtypewordlikeresaultslist
+            Alltypewordlikeresaultslist = HaiBaotypewordlikeresaultslist + MJXtypewordlikeresaultslist + PPDRTtypewordlikeresaultslist + MTtypewordlikeresaultslist + PingPutypewordlikeresaultslist + Bocitypewordlikeresaultslist + zhututypewordlikeresaultslist + WMDRtypewordlikeresaultslist + Othertypewordlikeresaultslist + MTYPtypewordlikeresaultslist + STDtypewordlikeresaultslist
             print('Alltypewordlikeresaultslist',len(Alltypewordlikeresaultslist))
-            Allfnlist = HaiBaofnlist + MJXfnlist + PPDRTfnlist + MTfnlist + PingPufnlist + Bocifnlist + zhutufnlist + WMDRfnlist + Otherfnlist + MTYPfnlist
+            Allfnlist = HaiBaofnlist + MJXfnlist + PPDRTfnlist + MTfnlist + PingPufnlist + Bocifnlist + zhutufnlist + WMDRfnlist + Otherfnlist + MTYPfnlist + STDfnlist
             print('Allfnlist',len(Allfnlist))
-            Allfiletypelist = HaiBaofiletypelist + MJXfiletypelist + PPDRTfiletypelist + MTfiletypelist + PingPufiletypelist + Bocifiletypelist + zhutufiletypelist + WMDRfiletypelist + Otherfiletypelist + MTYPfiletypelist
+            Allfiletypelist = HaiBaofiletypelist + MJXfiletypelist + PPDRTfiletypelist + MTfiletypelist + PingPufiletypelist + Bocifiletypelist + zhutufiletypelist + WMDRfiletypelist + Otherfiletypelist + MTYPfiletypelist + STDfiletypelist
             print('Allfiletypelist',len(Allfiletypelist))
             filetypeSet = list(set(Allfiletypelist))
             print('filetypeSet',filetypeSet)
 
             AllData = zip(Allfileindexlist, Allfileurllist, Alltypewordlikeresaultslist, Allfnlist, Allfiletypelist, FunctionIndexSumList)
-            if HaiBaoresaultPD == 0 and MJXresaultPD == 0 and PPDRTresaultPD == 0 and MTresaultPD == 0 and PingPuresaultPD == 0 and zhuturesaultPD == 0 and WMDRresaultPD == 0 and OtherresaultPD == 0 and MTYPresaultPD == 0:  # 后续用 and 关系加模特列表判断等等.....
+            if HaiBaoresaultPD == 0 and MJXresaultPD == 0 and PPDRTresaultPD == 0 and MTresaultPD == 0 and PingPuresaultPD == 0 and zhuturesaultPD == 0 and WMDRresaultPD == 0 and OtherresaultPD == 0 and MTYPresaultPD == 0 and STDresaultPD == 0:  # 后续用 and 关系加模特列表判断等等.....
                 info = '未查询到 “{}” 相关的图片！'.format(keyword)
                 Pic404 = "photo/img/404.png"
                 infoData = {'info': info, 'resault': 0, 'Pic404': Pic404, 'keyword': keyword}

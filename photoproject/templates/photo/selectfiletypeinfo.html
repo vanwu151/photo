@@ -379,7 +379,27 @@
                                         alert("“{{ m.fn }}”的共享路径已复制，可粘贴至资源管理器中打开。");
                                     }                
                                 </script>                                                                               
-                            {% endif %}                    
+                            {% endif %}  
+                            {% if m.filetype == "实体照片" %}                                                                                                  
+                                <pre id="{{ m.fn }}" hidden >{{ m.filename }}</pre>
+                                <textarea id="input"></textarea>
+                                <button onclick="copyText{{ m.functionindex }}()" id="copyBtn">
+                                    <img class="lazy img-responsive" data-original="/imagesshiti{{ m.fileurl }}" width="216" >
+                                    <br></br>
+                                    <font size="1.2">{{ m.filetype }}{{ m.fileindex }}：{{ m.fn }}</font>
+                                </button>
+                                <input type="checkbox" name="downurl"  value="/imagesshiti{{ m.fileurl }},{{ m.fn }}"/>                    
+                                <script type="text/javascript">            
+                                    function copyText{{ m.functionindex }}() {
+                                        var text = document.getElementById("{{ m.fn }}").innerText;
+                                        var input = document.getElementById("input");
+                                        input.value = text; // 修改文本框的内容
+                                        input.select(); // 选中文本
+                                        document.execCommand("copy"); // 执行浏览器复制命令
+                                        alert("“{{ m.fn }}”的共享路径已复制，可粘贴至资源管理器中打开。");
+                                    }                
+                                </script>                                                                               
+                            {% endif %}                  
                         </td>                                                             
                     </tr>
                 <!-- </table> -->
