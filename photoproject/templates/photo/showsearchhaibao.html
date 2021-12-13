@@ -156,12 +156,10 @@
                             {% if filetype == "上新海报" %}                                                                                                  
                                 <pre id="{{ fn }}" hidden >{{ filename }}</pre>
                                 <textarea id="input"></textarea>
-                                <button onclick="copyText{{ functionindex }}()" id="copyBtn">
-                                    <img class="lazy img-responsive" data-original="/shangxinhaibao{{ fileurl }}" width="360" >
-                                    <br></br>
-                                    <font size="1.2">{{ fn }}</font>
-                                </button>                             
-                                <script type="text/javascript">            
+                                <img class="lazy img-responsive" data-original="/shangxinhaibao{{ fileurl }}" width="360" >
+                                <br></br>
+                                <font size="1.2">{{ fn }}</font>                            
+                                <!-- <script type="text/javascript">            
                                     function copyText{{ functionindex }}() {
                                         var text = document.getElementById("{{ fn }}").innerText;
                                         var input = document.getElementById("input");
@@ -170,7 +168,7 @@
                                         document.execCommand("copy"); // 执行浏览器复制命令
                                         alert("“{{ fn }}”的共享路径已复制，可粘贴至资源管理器中打开。");
                                     }                
-                                </script>                                                                               
+                                </script>                                                                                -->
                             {% endif %}                                                
                         </td>                                                             
                     </tr>
