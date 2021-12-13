@@ -26,6 +26,7 @@ urlpatterns = [
     path('searchfile/', views.searchfile),
     path('searchfileinfo/', views.serchfileinfo),
     path('selectfiletype/', views.selectfiletype),
+    path('searchSXHB/', views.searchSXHB),
     url(r'^static/(?P<path>.*)$', 
     static.serve,{'document_root': settings.STATIC_ROOT }, name='static'),
     url(r'^images/(?P<path>.*)$', 

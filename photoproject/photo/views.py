@@ -318,6 +318,58 @@ def serchfileinfo(request):
                 return render(request, 'photo/showserchfileinfo.html', serchfileinfoData )
         
 
+def searchSXHB(request):  #查询上新海报系列二维码链接
+    haibaoSearchName = request.GET.get('haibao_name')
+    print(haibaoSearchName)
+    if request.method == "GET":
+        getsearchSXHB = getSXHB( haibaoSearchName )
+        getsearchSXHBData = { 'AllData': getsearchSXHB }
+        try:
+            return render(request, 'photo/showsearchhaibao.html', getsearchSXHBData)
+        except:
+            pass
+
+
+def getSXHB(haibao_name):  #查询上新海报海报内容数据
+    haibao_name = haibao_name
+    SXHBPoolNum = 5
+    typeword = '上新海报'
+    typewordlikelist = ['shangxinhaibao']
+    serverRootPath = '/mnt/shangxinhaibao'
+    PcRootPath = '\\\\172.18.99.210\\品牌部\\5.淘系上新设计\\上新开屏海报+周一例会海报\\周一例会海报'
+    SXHBGetInfoService = fs.fileInfoGetService(RedisPoolNum = SXHBPoolNum, keyword = haibao_name, typeword = typeword,
+                                        typewordlikelist = typewordlikelist, serverRootPath = serverRootPath, PcRootPath = PcRootPath)
+    SXHBresaultsData = SXHBGetInfoService.resaultsfiledata()
+    try:
+        SXHBresaultPD = len(SXHBresaultsData['fileurllist'])
+    except:
+        SXHBresaultPD = 'OK Getch It'
+    SXHBfileindexlist = SXHBresaultsData['fileindexlist']
+    SXHBfileurllist = SXHBresaultsData['fileurllist']
+    SXHBtypewordlikeresaultslist = SXHBresaultsData['typewordlikeresaultslist']                 
+    SXHBfnlist = SXHBresaultsData['fnlist']
+    SXHBfiletypelist = SXHBresaultsData['filetypelist']
+    SXHBresaultsData['resaultPD'] = SXHBresaultPD
+    SXHBFunctionIndex = SXHBresaultsData['functionIndex']
+    FunctionIndexSum = SXHBFunctionIndex
+    FunctionIndexSumList = []
+    for FunctionIndex in range(1, FunctionIndexSum + 1):
+        FunctionIndexSumList.append(FunctionIndex)
+    print('FunctionIndexSumList', len(FunctionIndexSumList))
+    Allfileindexlist = SXHBfileindexlist
+    print('Allfileindexlist',len(Allfileindexlist))
+    Allfileurllist = SXHBfileurllist
+    print('Allfileurllist',len(Allfileurllist))
+    Alltypewordlikeresaultslist = SXHBtypewordlikeresaultslist
+    print('Alltypewordlikeresaultslist',len(Alltypewordlikeresaultslist))
+    Allfnlist = SXHBfnlist
+    print('Allfnlist',len(Allfnlist))
+    Allfiletypelist = SXHBfiletypelist
+    print('Allfiletypelist',len(Allfiletypelist))
+    filetypeSet = list(set(Allfiletypelist))
+    print('filetypeSet',filetypeSet)
+    AllData = zip(Allfileindexlist, Allfileurllist, Alltypewordlikeresaultslist, Allfnlist, Allfiletypelist, FunctionIndexSumList)
+    return AllData
 
 def selectfiletype(request):
     if request.method == "POST":
