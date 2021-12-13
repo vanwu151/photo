@@ -70,6 +70,7 @@ class fileInfoGetService():
         resaultsGen = connRedis.scan_iter('*{}*'.format(self.keyword))
         for resault in resaultsGen:
             resaultsList.append(resault)
+        print(resaultsList)
         return resaultsList
 
     def resaultsfiledata(self):
@@ -96,8 +97,8 @@ class fileInfoGetService():
                     filetypelist.append(self.typeword) 
                     index = index + 1
                     functionIndex = functionIndex + 1
-                except:                   
-                    pass
+                except Exception as e:                   
+                    print(e)
         filedata = {'fileindexlist':fileindexlist,'fileurllist': fileurllist,'typewordlikeresaultslist': typewordlikeresaultslist , 
                     'fnlist': fnlist,'filetypelist':  filetypelist,'functionIndex': functionIndex}
         return filedata

@@ -278,7 +278,7 @@ def serchfileinfo(request):
             SXHBFunctionIndex = SXHBresaultsData['functionIndex']
 
             # 建立JScript函数索引
-            FunctionIndexSum = SXHBFunctionIndex + HaiBaoFunctionIndex + MJXFunctionIndex + PPDRTFunctionIndex + MTFunctionIndex + PingPuFunctionIndex + BociFunctionIndex + zhutuFunctionIndex + WMDRFunctionIndex + OtherFunctionIndex + MTYPFunctionIndex + STDFunctionIndex
+            FunctionIndexSum = HaiBaoFunctionIndex + MJXFunctionIndex + PPDRTFunctionIndex + MTFunctionIndex + PingPuFunctionIndex + BociFunctionIndex + zhutuFunctionIndex + WMDRFunctionIndex + OtherFunctionIndex + MTYPFunctionIndex + STDFunctionIndex + SXHBFunctionIndex
             FunctionIndexSumList = []
             for FunctionIndex in range(1, FunctionIndexSum + 1):
                 FunctionIndexSumList.append(FunctionIndex)
