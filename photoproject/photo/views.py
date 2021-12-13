@@ -259,7 +259,7 @@ def serchfileinfo(request):
             # 周例会海报上新图片
             SXHBPoolNum = 5
             typeword = '上新海报'
-            typewordlikelist = ['上新','开屏海报','例会海报','海报','5.淘系上新设计','周一例会海报']
+            typewordlikelist = ['shangxinhaibao']
             serverRootPath = '/mnt/shangxinhaibao'
             PcRootPath = '\\\\172.18.99.210\\品牌部\\5.淘系上新设计\\上新开屏海报+周一例会海报\\周一例会海报'
             SXHBGetInfoService = fs.fileInfoGetService(RedisPoolNum = SXHBPoolNum, keyword = keyword, typeword = typeword,
