@@ -256,27 +256,48 @@ def serchfileinfo(request):
             STDresaultsData['resaultPD'] = STDresaultPD
             STDFunctionIndex = STDresaultsData['functionIndex']
 
+            # 周例会海报上新图片
+            SXHBPoolNum = 5
+            typeword = '上新海报'
+            typewordlikelist = ['上新','开屏海报','例会海报','海报']
+            serverRootPath = '/mnt/shangxinhaibao'
+            PcRootPath = '\\\\172.18.99.210\\品牌部\\5.淘系上新设计\\上新开屏海报+周一例会海报\\周一例会海报'
+            SXHBGetInfoService = fs.fileInfoGetService(RedisPoolNum = SXHBPoolNum, keyword = keyword, typeword = typeword,
+                                                typewordlikelist = typewordlikelist, serverRootPath = serverRootPath, PcRootPath = PcRootPath)
+            SXHBresaultsData = SXHBGetInfoService.resaultsfiledata()
+            try:
+                SXHBresaultPD = len(SXHBresaultsData['fileurllist'])
+            except:
+                SXHBresaultPD = 'OK Getch It'
+            SXHBfileindexlist = SXHBresaultsData['fileindexlist']
+            SXHBfileurllist = SXHBresaultsData['fileurllist']
+            SXHBtypewordlikeresaultslist = SXHBresaultsData['typewordlikeresaultslist']                 
+            SXHBfnlist = SXHBresaultsData['fnlist']
+            SXHBfiletypelist = SXHBresaultsData['filetypelist']
+            SXHBresaultsData['resaultPD'] = SXHBresaultPD
+            SXHBFunctionIndex = SXHBresaultsData['functionIndex']
+
             # 建立JScript函数索引
-            FunctionIndexSum = HaiBaoFunctionIndex + MJXFunctionIndex + PPDRTFunctionIndex + MTFunctionIndex + PingPuFunctionIndex + BociFunctionIndex + zhutuFunctionIndex + WMDRFunctionIndex + OtherFunctionIndex + MTYPFunctionIndex + STDFunctionIndex
+            FunctionIndexSum = SXHBFunctionIndex + HaiBaoFunctionIndex + MJXFunctionIndex + PPDRTFunctionIndex + MTFunctionIndex + PingPuFunctionIndex + BociFunctionIndex + zhutuFunctionIndex + WMDRFunctionIndex + OtherFunctionIndex + MTYPFunctionIndex + STDFunctionIndex
             FunctionIndexSumList = []
             for FunctionIndex in range(1, FunctionIndexSum + 1):
                 FunctionIndexSumList.append(FunctionIndex)
             print('FunctionIndexSumList', len(FunctionIndexSumList))
-            Allfileindexlist = HaiBaofileindexlist + MJXfileindexlist + PPDRTfileindexlist + MTfileindexlist + PingPufileindexlist + Bocifileindexlist + zhutufileindexlist + WMDRfileindexlist + Otherfileindexlist + MTYPfileindexlist + STDfileindexlist
+            Allfileindexlist = HaiBaofileindexlist + MJXfileindexlist + PPDRTfileindexlist + MTfileindexlist + PingPufileindexlist + Bocifileindexlist + zhutufileindexlist + WMDRfileindexlist + Otherfileindexlist + MTYPfileindexlist + STDfileindexlist + SXHBfileindexlist
             print('Allfileindexlist',len(Allfileindexlist))
-            Allfileurllist = HaiBaofileurllist + MJXfileurllist + PPDRTfileurllist + MTfileurllist + PingPufileurllist + Bocifileurllist + zhutufileurllist +WMDRfileurllist + Otherfileurllist + MTYPfileurllist + STDfileurllist
+            Allfileurllist = HaiBaofileurllist + MJXfileurllist + PPDRTfileurllist + MTfileurllist + PingPufileurllist + Bocifileurllist + zhutufileurllist +WMDRfileurllist + Otherfileurllist + MTYPfileurllist + STDfileurllist + SXHBfileurllist
             print('Allfileurllist',len(Allfileurllist))
-            Alltypewordlikeresaultslist = HaiBaotypewordlikeresaultslist + MJXtypewordlikeresaultslist + PPDRTtypewordlikeresaultslist + MTtypewordlikeresaultslist + PingPutypewordlikeresaultslist + Bocitypewordlikeresaultslist + zhututypewordlikeresaultslist + WMDRtypewordlikeresaultslist + Othertypewordlikeresaultslist + MTYPtypewordlikeresaultslist + STDtypewordlikeresaultslist
+            Alltypewordlikeresaultslist = HaiBaotypewordlikeresaultslist + MJXtypewordlikeresaultslist + PPDRTtypewordlikeresaultslist + MTtypewordlikeresaultslist + PingPutypewordlikeresaultslist + Bocitypewordlikeresaultslist + zhututypewordlikeresaultslist + WMDRtypewordlikeresaultslist + Othertypewordlikeresaultslist + MTYPtypewordlikeresaultslist + STDtypewordlikeresaultslist + SXHBtypewordlikeresaultslist
             print('Alltypewordlikeresaultslist',len(Alltypewordlikeresaultslist))
-            Allfnlist = HaiBaofnlist + MJXfnlist + PPDRTfnlist + MTfnlist + PingPufnlist + Bocifnlist + zhutufnlist + WMDRfnlist + Otherfnlist + MTYPfnlist + STDfnlist
+            Allfnlist = HaiBaofnlist + MJXfnlist + PPDRTfnlist + MTfnlist + PingPufnlist + Bocifnlist + zhutufnlist + WMDRfnlist + Otherfnlist + MTYPfnlist + STDfnlist + SXHBfnlist
             print('Allfnlist',len(Allfnlist))
-            Allfiletypelist = HaiBaofiletypelist + MJXfiletypelist + PPDRTfiletypelist + MTfiletypelist + PingPufiletypelist + Bocifiletypelist + zhutufiletypelist + WMDRfiletypelist + Otherfiletypelist + MTYPfiletypelist + STDfiletypelist
+            Allfiletypelist = HaiBaofiletypelist + MJXfiletypelist + PPDRTfiletypelist + MTfiletypelist + PingPufiletypelist + Bocifiletypelist + zhutufiletypelist + WMDRfiletypelist + Otherfiletypelist + MTYPfiletypelist + STDfiletypelist + SXHBfiletypelist
             print('Allfiletypelist',len(Allfiletypelist))
             filetypeSet = list(set(Allfiletypelist))
             print('filetypeSet',filetypeSet)
 
             AllData = zip(Allfileindexlist, Allfileurllist, Alltypewordlikeresaultslist, Allfnlist, Allfiletypelist, FunctionIndexSumList)
-            if HaiBaoresaultPD == 0 and MJXresaultPD == 0 and PPDRTresaultPD == 0 and MTresaultPD == 0 and PingPuresaultPD == 0 and zhuturesaultPD == 0 and WMDRresaultPD == 0 and OtherresaultPD == 0 and MTYPresaultPD == 0 and STDresaultPD == 0:  # 后续用 and 关系加模特列表判断等等.....
+            if HaiBaoresaultPD == 0 and MJXresaultPD == 0 and PPDRTresaultPD == 0 and MTresaultPD == 0 and PingPuresaultPD == 0 and zhuturesaultPD == 0 and WMDRresaultPD == 0 and OtherresaultPD == 0 and MTYPresaultPD == 0 and STDresaultPD == 0 and SXHBresaultPD == 0:  # 后续用 and 关系加模特列表判断等等.....
                 info = '未查询到 “{}” 相关的图片！'.format(keyword)
                 Pic404 = "photo/img/404.png"
                 infoData = {'info': info, 'resault': 0, 'Pic404': Pic404, 'keyword': keyword}

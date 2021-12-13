@@ -158,6 +158,11 @@ if __name__ == '__main__':
     STDGetInfoService = fileInfoGetService(SourceDir = STDSourceDir, RedisPoolNum = STDRedisPoolNum)
     STDGetInfoService.FilesDetails()
 
+    SXHBSourceDir = "/mnt/shangxinhaibao"  #上新海报图周会用
+    SXHBRedisPoolNum = 5
+    SXHBGetInfoService = fileInfoGetService(SourceDir = SXHBSourceDir, RedisPoolNum = SXHBRedisPoolNum)
+    SXHBGetInfoService.FilesDetails()
+
     # BoCiRedisPoolNum = 11 
     # keyword = '11108002'
     # typeword = '模特图'
