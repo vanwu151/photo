@@ -109,12 +109,12 @@ class fileInfoGetService():
 
 
 if __name__ == '__main__':
-    BoCiSourceDir = "/mnt/images/ES/2021"
+    BoCiSourceDir = "/mnt/images/ES/2022"
     BoCiRedisPoolNum = 15
     BociGetInfoService = fileInfoGetService(SourceDir = BoCiSourceDir, RedisPoolNum = BoCiRedisPoolNum)
     BociGetInfoService.FilesDetails()
 
-    HBSourceDir = "/mnt/imageshaibao/海报/ES/2021" #海报图
+    HBSourceDir = "/mnt/imageshaibao/海报/ES/2022" #海报图
     HBRedisPoolNum = 14
     HBGetInfoService = fileInfoGetService(SourceDir = HBSourceDir, RedisPoolNum = HBRedisPoolNum)
     HBGetInfoService.FilesDetails() 
@@ -129,12 +129,12 @@ if __name__ == '__main__':
     PPDRTGetInfoService = fileInfoGetService(SourceDir = PPDRTSourceDir, RedisPoolNum = PPDRTRedisPoolNum)
     PPDRTGetInfoService.FilesDetails()
 
-    MTSourceDir = "/mnt/imageshaibao/修图组/妖精  修图临时存放点/OK/2021年"  # 模特图 
+    MTSourceDir = "/mnt/imageshaibao/修图组/妖精  修图临时存放点/OK/2022年"  # 模特图 
     MTRedisPoolNum = 11
     MTGetInfoService = fileInfoGetService(SourceDir = MTSourceDir, RedisPoolNum = MTRedisPoolNum)
     MTGetInfoService.FilesDetails()
 
-    ZTSourceDir = "/mnt/imageszhutu/2021"  # 主图
+    ZTSourceDir = "/mnt/imageszhutu/2022"  # 主图
     ZTRedisPoolNum = 10
     ZTGetInfoService = fileInfoGetService(SourceDir = ZTSourceDir, RedisPoolNum = ZTRedisPoolNum)
     ZTGetInfoService.FilesDetails()
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     OtherGetInfoService = fileInfoGetService(SourceDir = OtherSourceDir, RedisPoolNum = OtherRedisPoolNum)
     OtherGetInfoService.FilesDetails()
 
-    MTYPSourceDir = "/mnt/imageshaibao/原片/2021"  #模特原片
+    MTYPSourceDir = "/mnt/imageshaibao/原片/2022"  #模特原片
     MTYPRedisPoolNum = 7
     MTYPGetInfoService = fileInfoGetService(SourceDir = MTYPSourceDir, RedisPoolNum = MTYPRedisPoolNum)
     MTYPGetInfoService.FilesDetails()
