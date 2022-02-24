@@ -154,7 +154,7 @@ def serchfileinfo(request):
             # 波次图查询
             BociPoolNum = 15
             typeword = '波次图'
-            typewordlikelist = ['波','波次','波次图']
+            typewordlikelist = ['波','波次','波次图','月']
             serverRootPath = '/mnt/images'
             PcRootPath = '\\\\172.18.99.210\\分图'
             BociGetInfoService = fs.fileInfoGetService(RedisPoolNum = BociPoolNum, keyword = keyword, typeword = typeword,
