@@ -297,7 +297,7 @@ def serchfileinfo(request):
             print('filetypeSet',filetypeSet)
 
             AllData = zip(Allfileindexlist, Allfileurllist, Alltypewordlikeresaultslist, Allfnlist, Allfiletypelist, FunctionIndexSumList)
-            if HaiBaoresaultPD == 0 and MJXresaultPD == 0 and PPDRTresaultPD == 0 and MTresaultPD == 0 and PingPuresaultPD == 0 and zhuturesaultPD == 0 and WMDRresaultPD == 0 and OtherresaultPD == 0 and MTYPresaultPD == 0 and STDresaultPD == 0 and SXHBresaultPD == 0:  # 后续用 and 关系加模特列表判断等等.....
+            if HaiBaoresaultPD == 0 and MJXresaultPD == 0 and PPDRTresaultPD == 0 and MTresaultPD == 0 and PingPuresaultPD == 0 and zhuturesaultPD == 0 and BociresaultPD == 0 and WMDRresaultPD == 0 and OtherresaultPD == 0 and MTYPresaultPD == 0 and STDresaultPD == 0 and SXHBresaultPD == 0:  # 后续用 and 关系加模特列表判断等等.....
                 info = '未查询到 “{}” 相关的图片！'.format(keyword)
                 Pic404 = "photo/img/404.png"
                 infoData = {'info': info, 'resault': 0, 'Pic404': Pic404, 'keyword': keyword}
